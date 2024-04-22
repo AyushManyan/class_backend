@@ -27,7 +27,7 @@
 
   <script>
     const fetchUsers = () => {
-      fetch('http://localhost:3002/user')
+      fetch('/user')
         .then(response => {
           if (!response.ok) {
             // throw new Error('Network response was not ok');
