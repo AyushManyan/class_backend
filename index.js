@@ -2,10 +2,17 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const app = express();
+
+const cors = require('cors');
+
 require('dotenv').config();
 const PORT = process.env.PORT ;
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors({
+    origin: '*'
+}));
+
 mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log('connected to mongodb'))
     .catch(err => console.error("Error connecting to mongodb"))
